@@ -864,6 +864,38 @@ h3{font-weight:800}
 /* v33b: кнопки карточек «Продать или сдать» — к низу */
 .seg .rowbtns{margin-top:auto}
 
+
+/* ═══ v35: блок доверия — таймлайн ═══ */
+.tw2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.4rem 0 1.5rem}
+.tw2 p{font-size:.99rem;color:#3A362E;margin:0}
+.tw2-k{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:800;color:var(--accent-dark);margin-bottom:.45rem}
+.tml{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1.3rem 1.6rem 1.2rem}
+.tml-cap{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent-dark);margin-bottom:1.5rem}
+.tml-line{display:grid;grid-template-columns:repeat(4,1fr);position:relative;padding-top:.4rem}
+.tml-line::before{content:"";position:absolute;left:6%;right:6%;top:6px;height:2px;
+  background:linear-gradient(90deg,rgba(238,107,36,.25),var(--accent))}
+.tml-node{position:relative;padding:1.1rem 1rem 0 0}
+.tml-dot{position:absolute;left:0;top:-.4rem;width:13px;height:13px;border-radius:50%;
+  background:var(--surface);border:3px solid var(--accent)}
+.tml-node b{display:block;font-size:.9rem;font-weight:800;line-height:1.2;margin-bottom:.15rem}
+.tml-node i{font-style:normal;font-size:.78rem;color:var(--muted);line-height:1.3}
+.tml-bad{margin-top:1.2rem;padding-top:.85rem;border-top:1px dashed rgba(191,79,22,.35);
+  font-size:.83rem;color:#5A544C}
+.tml-bad b{color:var(--warn);font-weight:800}
+.tml-out{margin-top:1rem;background:var(--graphite);border-radius:18px;padding:1.1rem 1.5rem;
+  color:#EDE9DF;font-size:.99rem;display:flex;gap:1rem;align-items:flex-start}
+.tml-out b{color:var(--accent);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:800;white-space:nowrap;padding-top:.2rem}
+@media(max-width:900px){
+  .tw2{grid-template-columns:1fr;gap:1.2rem}
+  .tml-line{grid-template-columns:1fr;gap:.9rem}
+  .tml-line::before{display:none}
+  .tml-node{padding:0 0 0 1.6rem}
+  .tml-dot{left:0;top:.2rem}
+}
+
 </style>
 
 </head>
@@ -1262,26 +1294,17 @@ h3{font-weight:800}
   <div class="wrap reveal">
     <p class="eyebrow">Почему нам можно верить</p>
     <h2>Нам невыгодно продать вам плохую квартиру</h2>
-    <p class="sub" style="margin-bottom:.8rem">Мы зарабатываем не на одной сделке. Клиент, который купил удачно, через несколько лет продаёт с нами, покупает следующую и приводит знакомых — так приходит больше половины наших клиентов.</p>
-    <p class="sub">Одна неудачная покупка эту цепочку обрывает: человек не вернётся и никого не приведёт. Поэтому минусы объекта вы узнаете от нас до брони, а не от соседей после переезда. Это не благородство, а расчёт — и его можно проверить.</p>
-    <figure class="dg">
-      <p class="dgloop">так приходит больше половины наших клиентов</p>
-      <div class="dgrow">
-        <div class="dgcard"><b>Сделка</b><span>мы получаем комиссию</span></div>
-        <i class="dgarr">→</i>
-        <div class="dgcard"><b>Купил удачно</b><span>квартира не разочаровала</span></div>
-        <i class="dgarr">→</i>
-        <div class="dgcard"><b>Через 3–5 лет возвращается</b><span>продать и купить снова</span></div>
-        <i class="dgarr">→</i>
-        <div class="dgcard"><b>Приводит знакомых</b><span>рекомендует нас сам</span></div>
-      </div>
-      <div class="dgbranch">
-        <div class="dgcard warn"><b>Купил неудачно</b><span>минусы всплыли потом</span></div>
-        <i class="dgarr warn">→</i>
-        <div class="dgcard warn"><b>Не вернулся и никого не привёл</b><span>цепочка обрывается на первой сделке</span></div>
-      </div>
-      <figcaption>Одна неудачная покупка стоит нам не одной комиссии, а всей цепочки. Поэтому минусы объекта выгоднее назвать до брони.</figcaption>
-    </figure>
+    <div class="tw2">
+      <div><span class="tw2-k">Как мы зарабатываем</span><p>Мы зарабатываем не на одной сделке. Клиент, который купил удачно, через несколько лет продаёт с нами, покупает следующую и приводит знакомых — так приходит больше половины наших клиентов.</p></div>
+      <div><span class="tw2-k">Что ломает эту схему</span><p>Одна неудачная покупка эту цепочку обрывает: человек не вернётся и никого не приведёт. Поэтому минусы объекта вы узнаете от нас до брони, а не от соседей после переезда. Это не благородство, а расчёт — и его можно проверить.</p></div>
+    </div>
+    <div class="tml">
+      <div class="tml-cap">так приходит больше половины наших клиентов</div>
+      <div class="tml-line"><div class="tml-node"><span class="tml-dot"></span><b>Сделка</b><i>мы получаем комиссию</i></div><div class="tml-node"><span class="tml-dot"></span><b>Купил удачно</b><i>квартира не разочаровала</i></div><div class="tml-node"><span class="tml-dot"></span><b>Через 3–5 лет возвращается</b><i>продать и купить снова</i></div><div class="tml-node"><span class="tml-dot"></span><b>Приводит знакомых</b><i>рекомендует нас сам</i></div></div>
+      <div class="tml-bad"><b>Иначе:</b> купил неудачно, минусы всплыли потом → не вернулся и никого не привёл</div>
+    </div>
+    <div class="tml-out"><b>Вывод</b><span>Одна неудачная покупка стоит нам не одной комиссии, а всей цепочки. Поэтому минусы объекта выгоднее назвать до брони.</span></div>
+    <div class="rowbtns"><a class="btn" href="#form">Связаться с нами</a></div>
     <!-- СКРЫТО 01.09: четыре плашки механик + кнопка «Скачать договор · PDF». Вернуть — снять комментарий.
 <div class="mechs">
       <div class="mech"><h3>Договор лежит на сайте</h3><p>Читайте до звонка, без формы и обмена на телефон.</p></div>
