@@ -984,6 +984,20 @@ h3{font-weight:800}
 @media(max-width:1000px){#form .fields{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){#form .fields{grid-template-columns:1fr}}
 
+
+/* ═══ v40: инвест-блок — светлая карточка ═══ */
+.investcard-wrap{background:var(--surface);border:1px solid var(--line);border-radius:26px;
+  padding:2.1rem 2.2rem;display:grid;grid-template-columns:1.35fr .65fr;gap:2.2rem;align-items:start}
+.investcard-wrap .eyebrow{color:var(--accent-dark)}
+.investcard-wrap h2{color:var(--ink)}
+.investcard-wrap .sub{color:#4A463D}
+.inv-num{background:var(--soft);border:1px solid rgba(238,107,36,.32);border-radius:20px;
+  padding:1.5rem 1.4rem;text-align:center}
+.inv-num b{display:block;font-size:clamp(2.6rem,5vw,3.6rem);font-weight:900;color:var(--accent);
+  line-height:1;letter-spacing:-.03em;margin-bottom:.6rem}
+.inv-num span{font-size:.86rem;color:#5A544C;line-height:1.4;display:block}
+@media(max-width:900px){.investcard-wrap{grid-template-columns:1fr;padding:1.5rem 1.4rem}}
+
 </style>
 
 </head>
@@ -1332,18 +1346,14 @@ h3{font-weight:800}
 <section>
   <div class="wrap reveal">
     
-    <div class="invest">
+    <div class="investcard-wrap">
       <div>
         <p class="eyebrow">Инвестиции</p>
         <h2 style="margin-bottom:.9rem">Покупаете, чтобы заработать, а не чтобы жить?</h2>
         <p class="sub" style="margin-bottom:.7rem">Раньше схема была простой: купить дешевле на этапе стройки и продать дороже, когда дом достроят. Сейчас так почти не получается — цены на старте уже высокие, и продать чаще выходит себе в убыток. За прошлый год таких перепродаж стало на 21% меньше.</p>
         <p class="sub">Работает другое: купить и сдавать. Это 5–10% в год — если считать честно, вместе с ремонтом, налогом и месяцами, когда квартира стоит пустая. Застройщики обещают 15% и больше, потому что этих расходов в их расчёте просто нет.</p>
         <div class="rowbtns"><a class="btn" href="#form">Посчитать доходность</a><a class="btn ghost" href="#invest">Подробнее об инвестициях</a></div>
-      </div>
-      <div class="bignum">−21%<small>столько перепродаж строящихся квартир потеряла Москва за год</small></div>
-    </div>
-  </div>
-</section>
+      </div><div class="inv-num"><b>−21%</b><span>столько перепродаж строящихся квартир потеряла Москва за год</span></div></div></div></section>
 
 <!-- ═══ ПРОДАТЬ И СДАТЬ ═══ -->
 <section>
