@@ -944,6 +944,21 @@ h3{font-weight:800}
   .ptnote p br{display:none}
 }
 
+
+/* ═══ v38: «когда мы не нужны» — тёмные карточки, светлый вывод ═══ */
+.nfgrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.4rem}
+.nfc{background:var(--graphite);border:1px solid var(--graphite);border-radius:20px;padding:1.4rem 1.5rem;
+  display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start}
+.nfx{width:26px;height:26px;border-radius:50%;background:rgba(238,107,36,.16);
+  border:1px solid rgba(238,107,36,.45);color:#FF9A5C;font-weight:900;
+  display:grid;place-items:center;font-size:.85rem;line-height:1}
+.nfc b{display:block;font-size:1rem;font-weight:900;line-height:1.25;margin-bottom:.35rem;color:#fff}
+.nfc p{font-size:.9rem;color:#B7B0A4;line-height:1.5;margin:0}
+.nfbar{margin-top:1.1rem;background:var(--surface);border:1px solid var(--line);border-radius:20px;
+  padding:1.3rem 1.7rem;display:flex;justify-content:space-between;align-items:center;gap:1.6rem;flex-wrap:wrap}
+.nfbar p{font-size:1.12rem;font-weight:800;margin:0;color:var(--ink)}
+@media(max-width:900px){.nfgrid{grid-template-columns:1fr}}
+
 </style>
 
 </head>
@@ -1427,14 +1442,7 @@ h3{font-weight:800}
     <p class="eyebrow">Честно</p>
     <h2>Когда мы не нужны</h2>
     <p class="sub">Честнее сказать сразу, чем потратить ваше и наше время.</p>
-    <div class="nofit">
-      <p><b>Сделку нужно закрыть за неделю.</b> Проверка объекта и документов занимает время. Если сроки горят, мы будем вас тормозить — это мучение для обеих сторон.</p>
-      <p><b>Нужно самое дешёвое любой ценой.</b> Мы убираем из подборки то, что потом будет сложно продать, — а это обычно и есть самое дешёвое.</p>
-      <p><b>Продаёте простую квартиру и готовы водить показы сами.</b> Так вы сэкономите комиссию.</p>
-      <p><b>Ждёте от нас точную дату продажи.</b> Её не знает никто, и мы не назовём.</p>
-    </div>
-    <p class="fitline">Если ничего из этого не про вас — давайте работать.</p>
-    <div class="rowbtns"><a class="btn" href="#form">Подобрать варианты</a></div>
+    <div class="nfgrid"><div class="nfc"><span class="nfx">×</span><div><b>Сделку нужно закрыть за неделю.</b><p>Проверка объекта и документов занимает время. Если сроки горят, мы будем вас тормозить — это мучение для обеих сторон.</p></div></div><div class="nfc"><span class="nfx">×</span><div><b>Нужно самое дешёвое любой ценой.</b><p>Мы убираем из подборки то, что потом будет сложно продать, — а это обычно и есть самое дешёвое.</p></div></div><div class="nfc"><span class="nfx">×</span><div><b>Продаёте простую квартиру и готовы водить показы сами.</b><p>Так вы сэкономите комиссию.</p></div></div><div class="nfc"><span class="nfx">×</span><div><b>Ждёте от нас точную дату продажи.</b><p>Её не знает никто, и мы не назовём.</p></div></div></div><div class="nfbar"><p>Если ничего из этого не про вас — давайте работать.</p><a class="btn" href="#form">Подобрать варианты</a></div>
   </div>
 </section>
 
