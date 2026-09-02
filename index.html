@@ -1367,8 +1367,21 @@ header:not(.hd-ready),header:not(.hd-ready) nav{transition:none !important}
   </div>
 </section>
 
-<!-- ═══ КАЛЬКУЛЯТОРЫ ═══ -->
+<!-- ═══ ИНВЕСТИЦИИ ═══ -->
 <section>
+  <div class="wrap reveal">
+    <div class="investcard-wrap">
+      <div class="iv-head">
+        <p class="eyebrow">Инвестиции</p>
+        <h2>Покупаете, чтобы заработать, а не чтобы жить?</h2>
+      </div><div class="ivsplit"><div class="ivcol old"><span class="ivk">Раньше работало</span><p>Раньше схема была простой: купить дешевле на этапе стройки и продать дороже, когда дом достроят. Сейчас так почти не получается — цены на старте уже высокие, и продать чаще выходит себе в убыток. За прошлый год таких перепродаж стало на 21% меньше.</p></div><div class="ivcol new"><span class="ivk">Работает сейчас</span><p>Работает другое: купить и сдавать. Это 5–10% в год — если считать честно, вместе с ремонтом, налогом и месяцами, когда квартира стоит пустая. Застройщики обещают 15% и больше, потому что этих расходов в их расчёте просто нет.</p></div></div>
+      <div class="rowbtns"><button class="btn" type="button" data-goto="calcblock" data-calctab="rent">Посчитать доходность</button><a class="btn ghost" href="#invest">Подробнее об инвестициях</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ КАЛЬКУЛЯТОРЫ ═══ -->
+<section id="calcblock">
   <div class="wrap reveal">
     <p class="eyebrow">Посчитайте сами</p>
     <h2>Прикиньте цифры до того, как звонить</h2>
@@ -1422,20 +1435,6 @@ header:not(.hd-ready),header:not(.hd-ready) nav{transition:none !important}
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- ═══ ИНВЕСТИЦИИ ═══ -->
-<section>
-  <div class="wrap reveal">
-    <div class="investcard-wrap">
-      <div class="iv-head">
-        <p class="eyebrow">Инвестиции</p>
-        <h2>Покупаете, чтобы заработать, а не чтобы жить?</h2>
-      </div><div class="inv-num"><b>−21%</b><span>столько перепродаж строящихся квартир потеряла Москва за год</span></div>
-      <div class="ivsplit"><div class="ivcol old"><span class="ivk">Раньше работало</span><p>Раньше схема была простой: купить дешевле на этапе стройки и продать дороже, когда дом достроят. Сейчас так почти не получается — цены на старте уже высокие, и продать чаще выходит себе в убыток. За прошлый год таких перепродаж стало на 21% меньше.</p></div><div class="ivcol new"><span class="ivk">Работает сейчас</span><p>Работает другое: купить и сдавать. Это 5–10% в год — если считать честно, вместе с ремонтом, налогом и месяцами, когда квартира стоит пустая. Застройщики обещают 15% и больше, потому что этих расходов в их расчёте просто нет.</p></div></div>
-      <div class="rowbtns"><a class="btn" href="#form">Посчитать доходность</a><a class="btn ghost" href="#invest">Подробнее об инвестициях</a></div>
-    </div>
   </div>
 </section>
 
@@ -2339,7 +2338,13 @@ header:not(.hd-ready),header:not(.hd-ready) nav{transition:none !important}
   document.addEventListener('click',function(e){
     var b=e.target.closest('[data-goto]'); if(!b) return;
     var t=document.getElementById(b.dataset.goto);
-    if(t){e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'});}
+    if(!t) return;
+    e.preventDefault();
+    if(b.dataset.calctab){
+      var tab=document.querySelector('.calctab[data-calc="'+b.dataset.calctab+'"]');
+      if(tab) tab.click();
+    }
+    t.scrollIntoView({behavior:'smooth',block:'start'});
   });
 
   // навигация в шапке: скрыта на первом экране, появляется дальше
