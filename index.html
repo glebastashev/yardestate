@@ -1032,9 +1032,12 @@ header.hd-min .hd-right{margin-left:auto}
 
 /* ═══ v42b: компактная шапка над первым экраном ═══ */
 header{transition:width .45s cubic-bezier(.4,0,.2,1)}
-header.hd-min{width:min(540px,100% - 28px)}
+header.hd-min{width:min(680px,100% - 28px)}
+.hd-catalog{display:none}
+header.hd-min .hd-catalog{display:inline-flex}
 header.hd-min .tel{display:block;font-size:.85rem;margin-right:.35rem}
 @media(max-width:620px){header.hd-min .tel{display:none}}
+@media(max-width:360px){header.hd-min .hd-catalog{display:none}}
 
 
 
@@ -1077,6 +1080,7 @@ header.hd-min .tel{display:block;font-size:.85rem;margin-right:.35rem}
       <a class="tel" href="tel:+79775999909">8 (977) 599-99-09</a>
       <a class="btn sm ghost homebtn" href="#home" id="homebtn" hidden>На главную</a>
       <button class="icon-menu" type="button" id="burger" aria-label="Меню" aria-expanded="false">☰</button>
+      <a class="btn sm ghost hd-catalog" href="#catalog">Каталог</a>
       <a class="btn sm shine" href="#form">Подобрать варианты</a>
     </div>
   </div>
@@ -1317,7 +1321,6 @@ header.hd-min .tel{display:block;font-size:.85rem;margin-right:.35rem}
         </tbody>
       </table>
     </div>
-    <p class="why">Если вы уже знаете корпус, этаж и планировку — идите в отдел продаж напрямую, так быстрее, а цена та же. Мы нужны, когда вариантов много и не с чем сравнивать.</p>
     <div class="rowbtns"><a class="btn" href="#form">Подобрать варианты</a></div>
   </div>
 </section>
@@ -1406,15 +1409,12 @@ header.hd-min .tel{display:block;font-size:.85rem;margin-right:.35rem}
 <!-- ═══ ИНВЕСТИЦИИ ═══ -->
 <section>
   <div class="wrap reveal">
-    
     <div class="investcard-wrap">
       <div class="iv-head">
         <p class="eyebrow">Инвестиции</p>
         <h2>Покупаете, чтобы заработать, а не чтобы жить?</h2>
       </div><div class="inv-num"><b>−21%</b><span>столько перепродаж строящихся квартир потеряла Москва за год</span></div>
       <div class="ivsplit"><div class="ivcol old"><span class="ivk">Раньше работало</span><p>Раньше схема была простой: купить дешевле на этапе стройки и продать дороже, когда дом достроят. Сейчас так почти не получается — цены на старте уже высокие, и продать чаще выходит себе в убыток. За прошлый год таких перепродаж стало на 21% меньше.</p></div><div class="ivcol new"><span class="ivk">Работает сейчас</span><p>Работает другое: купить и сдавать. Это 5–10% в год — если считать честно, вместе с ремонтом, налогом и месяцами, когда квартира стоит пустая. Застройщики обещают 15% и больше, потому что этих расходов в их расчёте просто нет.</p></div></div>
-        <div class="rowbtns"><a class="btn" href="#form">Посчитать доходность</a><a class="btn ghost" href="#invest">Подробнее об инвестициях</a></div>
-      </div><div class="inv-num"><b>−21%</b><span>столько перепродаж строящихся квартир потеряла Москва за год</span></div></div></div>
       <div class="rowbtns"><a class="btn" href="#form">Посчитать доходность</a><a class="btn ghost" href="#invest">Подробнее об инвестициях</a></div>
     </div>
   </div>
