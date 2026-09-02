@@ -1218,6 +1218,21 @@ header:not(.hd-ready),header:not(.hd-ready) nav{transition:none !important}
     mask-image:linear-gradient(90deg,#000 86%,rgba(0,0,0,.15))}
 }
 
+
+/* ═══ v59: телефон — плотнее воронка и каталог ═══ */
+@media(max-width:620px){
+  /* ступени отбора: номер в строку с заголовком */
+  .funnel{gap:.7rem;margin:1.5rem 0 1.4rem}
+  .funnel .step{padding:1.1rem 1.2rem 1.2rem}
+  .funnel .stepno{display:inline;font-size:1.3rem;margin:0 .5rem 0 0;vertical-align:baseline}
+  .funnel .step h3{display:inline;font-size:1.06rem}
+  .funnel .step p{display:block;margin-top:.5rem}
+  /* каталог: фильтры ближе к шапке */
+  .pv[data-page="catalog"] > section:first-of-type{padding-top:3.2rem}
+  /* магнит: кнопка в одну строку */
+  .magnet .btn{padding:0 14px;font-size:.88rem}
+}
+
 </style>
 
 </head>
@@ -1685,7 +1700,7 @@ header:not(.hd-ready),header:not(.hd-ready) nav{transition:none !important}
   <div class="wrap reveal">
     <p class="eyebrow">Процесс</p>
     <h2>Что будет после заявки</h2>
-    <div class="ptline"><div class="ptrow"><div class="pti"><span class="pt-tm">20 минут</span><span class="pt-dt"></span><b>Разговор</b><span class="pt-ds">Бюджет, район, сроки</span></div><div class="pti"><span class="pt-tm">2 дня</span><span class="pt-dt"></span><b>Подборка</b><span class="pt-ds">10 вариантов с минусами</span></div><div class="pti"><span class="pt-tm">Один день</span><span class="pt-dt"></span><b>Просмотры</b><span class="pt-ds">Собираем маршрут</span></div><div class="pti"><span class="pt-tm">До брони</span><span class="pt-dt"></span><b>Проверка</b><span class="pt-ds">Отчёт письменно</span></div><div class="pti fin"><span class="pt-tm">До ключей</span><span class="pt-dt"></span><b>Сделка</b><span class="pt-ds">Сопровождаем</span></div></div><div class="ptnote"><p>Отвечаем за 2 часа, отчёт по пятницам.<br>Выйти можно на любом этапе — без неустойки и объяснений.</p><button class="btn" type="button" data-lead="Начать с разговора на 20 минут">Начать с разговора на 20 минут</button></div></div>
+    <div class="ptline"><div class="ptrow"><div class="pti"><span class="pt-tm">20 минут</span><span class="pt-dt"></span><b>Разговор</b><span class="pt-ds">Бюджет, район, сроки</span></div><div class="pti"><span class="pt-tm">2 дня</span><span class="pt-dt"></span><b>Подборка</b><span class="pt-ds">10 вариантов с минусами</span></div><div class="pti"><span class="pt-tm">Один день</span><span class="pt-dt"></span><b>Просмотры</b><span class="pt-ds">Собираем маршрут</span></div><div class="pti"><span class="pt-tm">До брони</span><span class="pt-dt"></span><b>Проверка</b><span class="pt-ds">Отчёт письменно</span></div><div class="pti fin"><span class="pt-tm">До ключей</span><span class="pt-dt"></span><b>Сделка</b><span class="pt-ds">Сопровождаем</span></div></div><div class="ptnote"><p>Отвечаем за 2 часа, отчёт по пятницам. <br>Выйти можно на любом этапе — без неустойки и объяснений.</p><button class="btn" type="button" data-lead="Начать с разговора на 20 минут">Начать с разговора на 20 минут</button></div></div>
   </div>
 </section>
 
