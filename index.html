@@ -1023,8 +1023,7 @@ header.hd-min nav{opacity:0;visibility:hidden;transform:translateY(-6px);pointer
   max-width:0;padding:0;margin:0;overflow:hidden}
 header.hd-min .icon-menu{display:none}
 header.hd-min .hd-right{margin-left:auto}
-/* без таб-бара копия садится ниже и дышит (только десктоп: на мобиле копия в потоке) */
-@media(min-width:981px){.hero-copy h1{max-width:19ch}.hero-actions{margin-top:2.1rem}}
+
 /* объединённая страница: подзаголовок внутри секции */
 .rentmg-h{font-family:var(--display);font-size:clamp(1.15rem,1.9vw,1.5rem);font-weight:800;
   line-height:1.1;letter-spacing:-.012em;margin:2.2rem 0 0}
@@ -1036,7 +1035,7 @@ header{transition:width .45s cubic-bezier(.4,0,.2,1)}
 header.hd-min{width:min(540px,100% - 28px)}
 header.hd-min .tel{display:block;font-size:.85rem;margin-right:.35rem}
 @media(max-width:620px){header.hd-min .tel{display:none}}
-@media(min-width:981px){.hero-copy{top:clamp(190px,25vh,286px)}}
+
 
 
 /* ═══ v43: сноска расчёта — нижняя строка карточки, а не висячий абзац ═══ */
@@ -1084,6 +1083,12 @@ header.hd-min .tel{display:block;font-size:.85rem;margin-right:.35rem}
     <div class="hero-noise"></div>
 
     <div class="hero-copy">
+      <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-tab="buy">Купить</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="sell">Продать</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="rent">Сдать и управлять</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="invest">Инвестировать</button>
+      </div>
 <div class="pane" data-pane="buy">
         <h1>Из 1000+ предложений на рынке Москвы подберём 10 лучших под ваш бюджет и цели</h1>
         <p class="lede">Новостройки, вторичка, инвестиции. Проверим цену, район, сроки и договор до брони. По новостройкам бесплатно — комиссию платит застройщик.</p>
@@ -1111,12 +1116,6 @@ header.hd-min .tel{display:block;font-size:.85rem;margin-right:.35rem}
     </div>
 
     <div class="catalog-drawer" id="drawer">
-      <div class="tabs drawer-tabs" role="tablist">
-      <button class="tab" role="tab" aria-selected="true" data-tab="buy">Купить</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="sell">Продать</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="rent">Сдать и управлять</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="invest">Инвестировать</button>
-      </div>
       <div class="mini-stats">
         <div><b>341</b><span>новостройка в Москве</span></div>
         <div><b>1000+</b><span>квартир на вторичке</span></div>
