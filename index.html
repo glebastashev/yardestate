@@ -3,7 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ярд — прототип главной</title>
+<title>Ярд — агентство недвижимости в Москве</title>
+<meta name="description" content="Подбираем квартиру в Москве из всего рынка: новостройки, вторичка, аренда и инвестиции. Проверяем объект по 42 пунктам до брони. По новостройкам без комиссии — платит застройщик.">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAACOklEQVR4nO2Wz28SQRTH3+wssECwiXACk0JiIzYRjm2iJvZgj2r9E9Rz/fFnqH+JTeyprbbapKba1Bpp6oUfXmShJrthgyxQGOaHYVdHAkS0aU/le9i8ebvzPvPe29lZVLercJpSTjU6jAH/oHEPzmaJOOdCCGkDgDu0bfvg4It0Hh+gKApCSNrwW5TSer0OAIwx6XRtiRxkDwF8KxYtywKAo6NWUdelHyHk8jwej3RijHvX0bug4YBKpbKysnrr9l3DMEolfXHx0dNnz92EhBAIIcbY+sYbt2iU0tW1V61W++3mJmOMEPI5kxkBaLXamqaVy2VCOn5/gDOezebkXc45xnjpxVJmfx8Acrn88stlTfPVftS2t9+XSiWs4BEAznmtVpuevnz4/VDXdcqopml/nnYqMD9/c3f3IwCYpplOpwkhCwt39vY+5QuFdDo1AkBpp9loPrh/L58vfNjZiUQisuFuGxhjyWQyGAy+Xt+YjE/6/f5OpwMAU1MXJ85N9EUbCqAAUNT1ZPJSNBrVi3osGu19QAhh2/b1a1e3tt4l4nHDMGRtCSGDAHXQ5fV5G/VGofDVNM02IRhjt70yiXA4nEgknjx+KISYm7uhqt0gqdSVQDAwGA31HZmWZTWaTRDdlQrBCSFen+9CLIYxrlar2WxudnYG/kf9GZx31OcUzkvZBTr7iDEm0+Kcu53nnCNHIwDyI9FrI2eaqqqhUEgO3etfttivueO/ijN54JyslBOON6AxAEbpJwriHeSlAXsaAAAAAElFTkSuQmCC">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://yardestate.ru/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ярд">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://yardestate.ru/">
+<meta property="og:title" content="Ярд — агентство недвижимости в Москве">
+<meta property="og:description" content="Подбираем квартиру в Москве из всего рынка: новостройки, вторичка, аренда и инвестиции. Проверяем объект по 42 пунктам до брони. По новостройкам без комиссии — платит застройщик.">
+<meta property="og:image" content="https://yardestate.ru/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ярд — агентство недвижимости в Москве">
+<meta name="twitter:description" content="Подбираем квартиру в Москве из всего рынка: новостройки, вторичка, аренда и инвестиции. Проверяем объект по 42 пунктам до брони. По новостройкам без комиссии — платит застройщик.">
+<meta name="twitter:image" content="https://yardestate.ru/og.jpg">
+<meta name="theme-color" content="#F4F3F0">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap">
 
@@ -3055,13 +3073,14 @@ header.hd-min .icon-tel{display:none}
       exForm=document.getElementById('exitForm'), exDone=document.getElementById('exitDone'),
       exMaterial=document.getElementById('exitMaterial'), exSelection=document.getElementById('exitSelection');
   if(!ex) return;
+  var force = /[?&]exit=1/.test(location.search);
   var shown=false;
-  try{ shown = sessionStorage.getItem('yardExit')==='1'; }catch(e){}
+  try{ shown = !force && sessionStorage.getItem('yardExit')==='1'; }catch(e){}
   function openExit(){
     if(shown) return;
     var lead=document.getElementById('leadModal'), obj=document.getElementById('objModal');
     if((lead&&!lead.hidden)||(obj&&!obj.hidden)) return;
-    shown=true; try{ sessionStorage.setItem('yardExit','1'); }catch(e){}
+    if(!force){ shown=true; try{ sessionStorage.setItem('yardExit','1'); }catch(e){} }
     ex.hidden=false; document.body.style.overflow='hidden'; exClose.focus();
   }
   function closeExit(){ ex.hidden=true; document.body.style.overflow=''; }
@@ -3103,11 +3122,20 @@ header.hd-min .icon-tel{display:none}
     exDone.querySelector('p').textContent='Пришлём «'+exMaterial.value+'» по указанному контакту и уточним детали объекта.';
   });
 
-  var armed=false;
-  setTimeout(function(){armed=true},7000);   /* не дёргаем сразу после захода */
-  document.addEventListener('mouseout',function(e){
-    if(!armed || e.relatedTarget || e.clientY>4) return;
+  var armed=false, lastY=999;
+  setTimeout(function(){armed=true},4000);   /* не дёргаем сразу после захода */
+  document.addEventListener('mousemove',function(e){ lastY=e.clientY; },{passive:true});
+  function maybeExit(y){
+    if(!armed) return;
+    if(y>60 && lastY>60) return;             /* ушли не через верх — не трогаем */
     openExit();
+  }
+  /* основной сигнал: курсор покинул окно */
+  document.documentElement.addEventListener('mouseleave',function(e){ maybeExit(e.clientY); });
+  /* запасной: не во всех браузерах mouseleave долетает */
+  document.addEventListener('mouseout',function(e){
+    if(e.relatedTarget || e.target.nodeName==='SELECT') return;
+    maybeExit(e.clientY);
   });
 })();
 
