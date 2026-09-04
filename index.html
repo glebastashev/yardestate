@@ -1297,8 +1297,8 @@ header.hd-min .icon-menu{display:inline-flex}
 @media(max-width:620px){
   .tabs{display:flex;grid-template-columns:none;gap:3px;padding:4px;width:100%;
     overflow:visible;-webkit-mask-image:none;mask-image:none}
-  .tab{flex:1 1 auto;min-width:0;white-space:normal;text-align:center;
-    font-size:.72rem;line-height:1.1;padding:8px 6px;min-height:42px;
+  .tab{flex:0 1 auto;min-width:0;white-space:normal;text-align:center;
+    line-height:1.1;padding:8px 7px;min-height:44px;
     display:flex;align-items:center;justify-content:center;border-radius:16px}
 }
 
@@ -1380,6 +1380,13 @@ header.hd-min .icon-tel{display:none}
   .magnet{display:flex;flex-direction:column;gap:1.3rem}
   .magnet .chkvid-box{order:-1;margin:0}
   .magnet-t{order:0}
+}
+
+
+/* ═══ v68: на самых узких экранах длинная подпись должна помещаться ═══ */
+@media(max-width:620px){
+  .tabs{justify-content:space-between;gap:0}
+  .tabs .tab{font-size:clamp(.66rem,2.9vw,.78rem);letter-spacing:-.004em}
 }
 
 </style>
